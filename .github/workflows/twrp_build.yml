@@ -48,15 +48,7 @@ on:
         - recovery
         - boot
         - vendorboot
-      UPLOAD_FILETRANSFER:
-        description: 'Upload to file-transfer (true or false)'
-        required: true
-        default: 'yes'
-        type: choice
-        options:
-        - yes
-        - no
-      UPLOAD_TELEGRAM:
+      UPLOAD:
         description: 'Upload to Telegram Bot (true or false)'
         required: true
         default: 'yes'
@@ -150,13 +142,12 @@ jobs:
         echo "::set-output name=name::$(find * -name *.zip -type f)"
       id: zipname
     - name: Upload recovery image
-      if: github.event.inputs.UPLOAD_FILETRANSFER == 'true'
       run: |
         cd ${{ steps.var.outputs.Outdir }}
         curl -sL https://git.io/file-transfer | sh
         ./transfer wet ${{ steps.zipname.outputs.name }}
     - name: Upload to Telegram Bot
-      if: github.event.inputs.UPLOAD_TELEGRAM == 'true'
+      if: github.event.inputs.UPLOAD == 'true'
       env:
         CHAT_ID: ${{ secrets.TELEGRAM_TO }}
         BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
