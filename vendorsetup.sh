@@ -5,6 +5,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-add_lunch_combo omni_picasso-user
-add_lunch_combo omni_picasso-userdebug
-add_lunch_combo omni_picasso-eng
+add_lunch_combo twrp_picasso-user
+add_lunch_combo twrp_picasso-userdebug
+add_lunch_combo twrp_picasso-eng
