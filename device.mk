@@ -40,17 +40,17 @@ PRODUCT_SOONG_NAMESPACES += \
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
-    libxml2
+    libxml2 
 
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so 
 
-# Boot Hal 1.2
+# Boot Hal 1.1
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2.system
+    android.hardware.boot@1.1.system
 PRODUCT_COPY_FILES += \
-    $(OUT_DIR)/target/product/raphael/system/lib64/android.hardware.boot@1.2.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/android.hardware.boot@1.2.so
+    $(OUT_DIR)/target/product/picasso/system/lib64/android.hardware.boot@1.1.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/android.hardware.boot@1.1.so
 
 # Overrides
 PRODUCT_BUILD_PROP_OVERRIDES += \
