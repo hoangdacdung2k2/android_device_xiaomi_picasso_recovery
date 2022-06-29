@@ -178,8 +178,3 @@ jobs:
         body: Recovery for ${{ github.event.inputs.DEVICE_NAME }}
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-    - name: Upload recovery image
-      run: |
-        cd ${{ steps.var.outputs.Outdir }}
-        curl -sL https://git.io/file-transfer | sh
-        ./transfer wet ${{ steps.zipname.outputs.name }}
